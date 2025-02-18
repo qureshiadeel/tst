@@ -19,6 +19,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 dockerCompose(composeFile: 'docker-compose.yml') {
+                    sh 'pwd'
+                    sh 'ls'
                     sh 'docker compose down -v'
                    sh 'docker compose up -d --build'
 
