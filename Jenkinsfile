@@ -32,11 +32,19 @@ pipeline {
             when {
                 expression { currentBuild.result != 'UNSTABLE' && currentBuild.result != 'FAILURE' }
             }
-            steps {
-                sh 'docker-compose down -v'
-                sh 'docker-compose up -d --build'
-                echo "Containers deployed using docker-compose up -d"
-            }
+             steps {
+        withDockerCompose(composeFile: 'docker-compose.yml') { // Make sure the path is correct if docker-compose.yml is not at the root of the workspace
+            sh 'docker-compose down -v' // or dockerCompose('down', '-v')
+            sh 'docker-compose up -d --build' // or dockerCompose('up', '-d', '--build')
+            echo "Containers deployed using docker-compose up -d"
+
+        }
+    }
+         //   steps {
+           //     sh 'docker-compose down -v'
+             //   sh 'docker-compose up -d --build'
+               // echo "Containers deployed using docker-compose up -d"
+            //}
         }
     }
 }
