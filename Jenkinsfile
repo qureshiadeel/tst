@@ -22,12 +22,12 @@ pipeline {
 
                      sh 'pwd'
                     sh 'ls'
-                dockerCompose(composeFile: 'docker-compose.yml') {
+            //    dockerCompose(composeFile: 'docker-compose.yml') {
                
                     sh 'docker compose down -v'
                    sh 'docker compose up -d --build'
 
-                }
+              //  }
             }
         }
     }
