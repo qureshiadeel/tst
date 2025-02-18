@@ -1,0 +1,60 @@
+# Explanation:
+
+FROM nginx:latest:
+
+#   This line specifies that the Docker image will be based on the 
+#   latest version of the official Nginx image. This image provides 
+#   the necessary Nginx software and its dependencies.
+
+COPY ./html /usr/share/nginx/html
+
+# This line copies the contents of the html directory from your 
+# local machine to the /usr/share/nginx/html directory within 
+# the Docker container. This is where Nginx expects to find 
+# the website files.
+
+EXPOSE 80
+
+# This line informs Docker that the container will be listening 
+# for connections on port 80, which is the standard port for 
+# HTTP traffic.
+
+CMD ["nginx", "-g", "daemon off;"]
+
+# This line specifies the command that will be executed when 
+# the container starts.
+# - 'nginx': This is the command to start the Nginx web server.
+# - '-g "daemon off;"': This option tells Nginx to run in the 
+#   foreground within the container instead of as a daemon 
+#   in the background. This is useful for running Nginx 
+#   interactively in a Docker container.
+
+
+Opening a File from a Web Server:
+How it works:
+
+A web server (like Nginx, Apache, or others) is a computer program that stores web pages and makes them available over a network.
+When you type a URL (e.g., https://www.example.com) into your browser, your computer sends a request to the web server associated with that domain.
+The server processes the request, locates the requested file (usually an HTML file), and sends it back to your browser.
+Your browser then interprets the HTML code and displays the webpage.
+Advantages:
+
+Dynamic content: Web servers can generate dynamic content based on user input or database information.
+Security: Web servers can implement security measures like authentication and authorization to protect your website.
+Scalability: Web servers can handle a large number of requests simultaneously.
+2. Opening a File Directly:
+How it works:
+
+You locate the HTML file on your local computer or a network-shared drive and open it directly in a web browser.
+The browser reads the HTML file and displays its content without involving a web server.
+Advantages:
+
+Simplicity: No need to set up a web server.
+Offline access: You can view the file even if you're not connected to the internet.
+Key Differences:
+
+Feature	Web Server	Direct File
+Accessibility:	Accessible from anywhere with an internet connection.	Accessible only from the local machine or network where the file is stored.
+Dynamic content:	Can generate dynamic content.	Typically static content.
+Security:	Can implement security measures.	Less secure as the file is directly exposed.
+Scalability:	Can handle a large number of requests.	Limited to the capabilities of the local machine.
