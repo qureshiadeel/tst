@@ -2,12 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/qureshiadeel/tst.git'
-            }
-        }
-
+      
         stage('Build') {
             steps {
                 echo "No build step needed for static website."
