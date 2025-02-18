@@ -18,12 +18,11 @@ pipeline {
 
         stage('Deploy') {
             steps {
-               // dockerCompose(composeFile: 'docker-compose.yml') {
-                 //   sh 'docker compose down -v'
-                   // sh 'docker compose up -d --build'
-                echo "No deploy step needed for static website."
+                dockerCompose(composeFile: 'docker-compose.yml') {
+                    sh 'docker compose down -v'
+                   sh 'docker compose up -d --build'
 
-                //}
+                }
             }
         }
     }
