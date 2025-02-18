@@ -23,7 +23,7 @@ pipeline {
                    // sh 'docker compose up -d --build'
                 echo "No deploy step needed for static website."
 
-                }
+                //}
             }
         }
     }
