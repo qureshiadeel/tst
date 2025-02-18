@@ -20,7 +20,7 @@ pipeline {
             steps {
                            
             //    dockerCompose(composeFile: 'docker-compose.yml') {
-               sh 'docker kill personal-website'
+            //   sh 'docker kill personal-website'
                     sh 'docker compose down -v'
                    sh 'docker compose up -d --build'
 
