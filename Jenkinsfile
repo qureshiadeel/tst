@@ -24,7 +24,7 @@ pipeline {
                    //     echo "Tests failed! Stopping the pipeline."
                      //   currentBuild.result = 'UNSTABLE'
                    // }
-                }
+               // }
             }
         }
 
